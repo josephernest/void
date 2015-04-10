@@ -1,10 +1,10 @@
 Void
 =============
 
-**Void** is a website creation tool. Just static pages or blog articles ? Both are possible with [Void](http://www.thisisvoid.org/).
+**Void** is a website creation tool. Just static pages or blog articles? Both are possible with [Void](http://www.thisisvoid.org/).
 
 The core is done in a single PHP file of less than 100 lines of code. Huh, this is bad? See the discussion about this [here](http://thisisvoid.org/article/03).
-What about performance ? See [here](http://thisisvoid.org/article/05-perf).
+What about [performance](http://thisisvoid.org/article/05-perf)?
 
 Screenshot
 ----
@@ -14,7 +14,7 @@ Screenshot
 About
 ----
 
-Author : Joseph Ernest ([@JosephErnest](http:/twitter.com/JosephErnest))
+Author: Joseph Ernest ([@JosephErnest](http:/twitter.com/JosephErnest))
 
 Credit
 ----
