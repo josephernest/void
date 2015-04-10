@@ -3,7 +3,7 @@ Void
 
 **Void** is a website creation tool. Just static pages or blog articles ? Both are possible with [Void](http://www.thisisvoid.org/).
 
-Done in a single PHP file of less than 100 lines of code. Huh, this is bad? See the discussion about this [here](http://thisisvoid.org/article/03).
+Done in a single PHP file of less than 100 lines of code(*). Huh, this is bad? See the discussion about this [here](http://thisisvoid.org/article/03).
 What about performance ? See [here](http://thisisvoid.org/article/05-perf).
 
 Screenshot
@@ -19,3 +19,5 @@ Author : Joseph Ernest ([@JosephErnest](http:/twitter.com/JosephErnest))
 License
 ----
 MIT license
+
+(*) **Void** uses the [Parsedown](http://github.com/erusev/parsedown) library, licensed under MIT license.
