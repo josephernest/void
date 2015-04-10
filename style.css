@@ -1,0 +1,40 @@
+.header { margin-bottom: 1.5em; padding-bottom: 1em; min-height: 3.1em; border-bottom: 2px solid #2980b9; }
+.header a:hover, .footer a:hover { border: none; }
+.header:after { content: ''; clear: both; display: block; }
+.logo { float: left; margin-top: 0.3em; }
+.logo a { background-color: #2980b9; color: white; padding: 0.2em 0.2em; font-size: 1.4em; }
+.logo a:hover { color: white; }
+.menu { float: right; padding: 0; margin: 0; }
+.menu li { display: inline-block; padding: 0.4em 0 0.4em 2em; }
+.menu a { font-weight: 600; }
+.main { min-height: 18em; padding-bottom: 3em; border-bottom: 2px solid #2980b9; }
+.main a { border-bottom: 2px solid #D1D1D1; }
+.main p, .main ul { margin-top: 0; margin-bottom: 0.5em; }
+.article { margin-bottom: 4em; font-size: 0.9em; line-height: 1.4em; }
+.articleinfo { color: #AAA; margin-bottom: 1em; font-size: 0.9em; }
+.articletitle { margin-bottom: 0; }
+.footer { padding: 1em 0 2em; font-size: .75em; color: #333; }
+.footer .left { float: left; }
+.footer .right { float: right; }
+
+* { margin: 0; }
+html { height: 100%; font-family: sans-serif; font-size: 1.25em; }
+body { margin: 0 auto; padding: 3em 3em 1em 3em; max-width: 44em; line-height: 1.5em; color: #333; }
+a { color: black; text-decoration: none; transition: color .2s, background .2s, border .2s; }
+a:hover  { border-bottom: 2px solid black; color: #2980b9; }
+img { max-width: 100%; }
+h1 { font-size: 2em; font-weight: 300; margin-bottom: .5em; line-height: 1.25em; color: #2980b9; }
+h2 { font-size: 1.95em; font-weight: 300; margin-bottom: .5em; line-height: 1.25em; }
+h3 { font-size: 1.4em; font-weight: 400; margin-bottom: .5em; line-height: 1.25em; }
+h4 { font-size: 1.2em; font-weight: 600; margin-bottom: .5em; line-height: 1.25em; }
+blockquote { background: none; border-left: 3px solid #777; color: #777; padding: 0 0 0 10px; margin-left: 1.2em; }
+hr { margin: 2em 0; height: 2px; background-color: #D1D1D1; border: none; }
+pre { background-color: #F1F1F1; margin-bottom: 0.7em; line-height: 1.5em; }
+
+@media (max-width: 640px) { 
+  body { padding: 1.25em; }
+  .header { padding-bottom: 0; }
+  .logo { float:none; } 
+  .menu { float:none; margin-top: 2em; } 
+  .menu li { display: block; padding: 0.2em 0; margin: 0.2em; border-top: 1px solid #D1D1D1; } 
+}

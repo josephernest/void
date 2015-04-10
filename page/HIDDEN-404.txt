@@ -1,0 +1,7 @@
+NOMENU:1
+
+#Page not found
+
+Are you sure you entered the URL correctly?
+
+Return to [home page](.).
