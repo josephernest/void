@@ -53,9 +53,10 @@ list($pageheader, $pagecontent, $pagetitle, $pageauthor, $pagedate, $pagenomenu,
 <?php
 require 'Parsedown.php';
 
-if ($type === "article") { echo "<h2 class=\"articletitle\">$pagetitle</h2><div class=\"articleinfo\">by $pageauthor, on $pagedate</div>"; } 
+if ($type === "article") { echo "<div class=\"article\"><h2 class=\"articletitle\">$pagetitle</h2><div class=\"articleinfo\">by $pageauthor, on $pagedate</div>"; } 
+else if ($type === "page") { echo "<div class=\"page\">"; }
 
-echo (new Parsedown())->text($pagecontent);
+echo (new Parsedown())->text($pagecontent) . "</div>";
 
 if ($requestedpage === $blogpagename)
 {
