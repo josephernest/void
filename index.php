@@ -30,7 +30,7 @@ list($pageheader, $pagecontent, $pagetitle, $pageauthor, $pagedate, $pagenomenu,
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Void<?php echo (!empty(trim($pagetitle)) ? " - $pagetitle" : "")?></title>
+  <title><?php echo (!empty(trim($pagetitle)) ? "$sitename - $pagetitle" : "$sitename")?></title>
   <base href="<?php echo rtrim(dirname(parse_url($_SERVER['PHP_SELF'], PHP_URL_PATH)), '/') . '/'; ?>">  
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
