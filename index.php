@@ -66,7 +66,7 @@ if ($requestedpage === $blogpagename)
   foreach($pages as $page)
   {
     list($pageheader, $pagecontent, $pagetitle, $pageauthor, $pagedate, $pagenomenu, $pageurl) = getpage($page);
-    echo "<div class=\"article\"><a href=\"". substr($page, 2, strlen($page)-6) . "\">";
+    echo "<div class=\"article\"><a href=\"". substr($page, 2, strlen($page)-(2+strlen($extension))) . "\">";
     echo "<h2 class=\"articletitle\">$pagetitle</h2><div class=\"articleinfo\">by $pageauthor, on $pagedate</div></a>";
     echo (new Parsedown())->text($pagecontent);
     echo "</div>";
