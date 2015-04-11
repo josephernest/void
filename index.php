@@ -1,7 +1,8 @@
-<?php 
-
+<?php
 $sitename = "SomeWebsite";
 $blogpagename = "blog";
+$extension = ".txt";
+$http404page = "./page/HIDDEN-404.txt";
 
 error_reporting(0);
 
@@ -9,7 +10,7 @@ function getpage($page)
 {
   $pagestr = file_get_contents($page);
   list($pageheader, $pagecontent) = preg_split('~(?:\r?\n){2}~', $pagestr, 2);  // split into 2 parts : before/after the first blank line
-  
+
   preg_match("/^TITLE:(.*)$/m", $pageheader, $matches1);                        // for articles: title, for pages: title displayed in top-menu
   preg_match("/^AUTHOR:(.*)$/m", $pageheader, $matches2);                       // for articles only
   preg_match("/^DATE:(.*)$/m", $pageheader, $matches3);                         // for articles only
@@ -21,31 +22,32 @@ function getpage($page)
 $requestedpage = basename(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
 if (trim(dirname(parse_url($_SERVER['PHP_SELF'], PHP_URL_PATH)), '/') === $requestedpage) { $requestedpage = ""; }     // check if page is home, there should be a better way to do it!
 $type =  strpos($_SERVER['REQUEST_URI'], 'article') ? 'article' : 'page';
-$pages = glob("./" .$type."/*$requestedpage.txt");
-if ($pages) { $page = $pages[0]; } else { $page = "./page/HIDDEN-404.txt"; $type = 'page'; }                 // default 404 error page
+$pages = glob("./" .$type."/*$requestedpage".$extension);
+if ($pages) { $page = $pages[0]; } else { $page = $http404page; $type = 'page'; }                 // default 404 error page
 list($pageheader, $pagecontent, $pagetitle, $pageauthor, $pagedate, $pagenomenu, $pageurl) = getpage($page);
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title><?php echo (!empty(trim($pagetitle)) ? "$sitename - $pagetitle" : "$sitename")?></title>
-  <base href="<?php echo rtrim(dirname(parse_url($_SERVER['PHP_SELF'], PHP_URL_PATH)), '/') . '/'; ?>">  
+  <title><?= trim($pagetitle) ? "$sitename - $pagetitle" : "$sitename" ?></title>
+  <base href="<?= rtrim(dirname(parse_url($_SERVER['PHP_SELF'], PHP_URL_PATH)), '/') . '/' ?>">
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
 <div class="header">
-  <div class="logo"><a href="."><?php echo $sitename;?></a></div>
+  <div class="logo"><a href="."><?= $sitename ?></a></div>
   <ul class="menu">
     <?php
-    $pages = glob("./page/*.txt");
+    $pages = glob("./page/*".$extension);
     foreach($pages as $page)
     {
       list($menupageheader, $menupagecontent, $menupagetitle, $menupageauthor, $menupagedate, $menupagenomenu, $menupageurl) = getpage($page);
-      if (!$menupagenomenu) { echo "<li><a href=\"$menupageurl\">$menupagetitle</a></li>"; }
+      if (!$menupagenomenu && $menupageurl) { echo "<li><a href=\"$menupageurl\">$menupagetitle</a></li>"; }
     }
-    ?>      
+    ?>
   </ul>
 </div>
 <div class="main">
@@ -53,14 +55,14 @@ list($pageheader, $pagecontent, $pagetitle, $pageauthor, $pagedate, $pagenomenu,
 <?php
 require 'Parsedown.php';
 
-if ($type === "article") { echo "<div class=\"article\"><h2 class=\"articletitle\">$pagetitle</h2><div class=\"articleinfo\">by $pageauthor, on $pagedate</div>"; } 
+if ($type === "article") { echo "<div class=\"article\"><h2 class=\"articletitle\">$pagetitle</h2><div class=\"articleinfo\">by $pageauthor, on $pagedate</div>"; }
 else if ($type === "page") { echo "<div class=\"page\">"; }
 
 echo (new Parsedown())->text($pagecontent) . "</div>";
 
 if ($requestedpage === $blogpagename)
 {
-  $pages = array_slice(array_reverse(glob("./article/*.txt")), $_GET['start'], 10);
+  $pages = array_slice(array_reverse(glob("./article/*".$extension)), $_GET['start'], 10);
   foreach($pages as $page)
   {
     list($pageheader, $pagecontent, $pagetitle, $pageauthor, $pagedate, $pagenomenu, $pageurl) = getpage($page);
@@ -70,9 +72,8 @@ if ($requestedpage === $blogpagename)
     echo "</div>";
   }
   if ($_GET['start'] > 0) { echo "<a href=\"" . $blogpagename . (($_GET['start'] > 10) ? "?start=" . ($_GET['start'] - 10) : "") . "\">Newer articles</a>&nbsp; "; }
-  if (count(array_slice(array_reverse(glob("./article/*.txt")), $_GET['start'], 11)) > 10) { echo "<a href=\"" . $blogpagename . "?start=" . ($_GET['start'] + 10) . "\">Older articles</a>"; }
+  if (count(array_slice(array_reverse(glob("./article/*".$extension)), $_GET['start'], 11)) > 10) { echo "<a href=\"" . $blogpagename . "?start=" . ($_GET['start'] + 10) . "\">Older articles</a>"; }
 }
-
 ?>
 
 </div>
