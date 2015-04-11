@@ -77,7 +77,7 @@ if ($requestedpage === $blogpagename)
 
 </div>
 <div class="footer">
-  <div class="left"><a href="">© 2015 <?php echo $sitename?></a></div>
+  <div class="left"><a href="">© <?php echo date('Y') . " " . $sitename; ?></a></div>
   <div class="right">Powered by <a href="http://www.thisisvoid.org">Void</a>.</div>
 </div>
 </body>
