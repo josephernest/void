@@ -24,6 +24,9 @@ $type =  strpos($_SERVER['REQUEST_URI'], 'article') ? 'article' : 'page';
 $pages = glob("./" . $type ."/*$requestedpage.{txt,md}", GLOB_BRACE);
 if ($pages) { $page = $pages[0]; } else { $page = "./page/HIDDEN-404.txt"; $type = 'page'; }                 // default 404 error page
 list($pageheader, $pagecontent, $pagetitle, $pageauthor, $pagedate, $pagenomenu, $pageurl) = getpage($page);
+$baseDir_Temp = rtrim(dirname(parse_url($_SERVER['PHP_SELF'], PHP_URL_PATH)), '/');
+if (!$baseDir_Temp == "/") {$baseDir_Temp += '/';};
+$baseDir = str_replace("\\", "/", $baseDir_Temp);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -31,7 +34,7 @@ list($pageheader, $pagecontent, $pagetitle, $pageauthor, $pagedate, $pagenomenu,
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><?php echo (trim($pagetitle) ? "$sitename - $pagetitle" : "$sitename")?></title>
-  <base href="<?php echo rtrim(dirname(parse_url($_SERVER['PHP_SELF'], PHP_URL_PATH)), '/') . '/'; ?>">  
+  <base href="<?php echo $baseDir ?>">  
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
