@@ -1,5 +1,4 @@
 <?php 
-
 $sitename = "SomeWebsite";
 $blogpagename = "blog";
 
@@ -9,13 +8,12 @@ function getpage($page)
 {
   $pagestr = file_get_contents($page);
   list($pageheader, $pagecontent) = preg_split('~(?:\r?\n){2}~', $pagestr, 2);  // split into 2 parts : before/after the first blank line
-  
-  preg_match("/^TITLE:(.*)$/m", $pageheader, $matches1);                        // for articles: title, for pages: title displayed in top-menu
+  preg_match("/^TITLE:(.*)$/m", $pageheader, $matches1);                        // for articles: title // for pages: title displayed in top-menu
   preg_match("/^AUTHOR:(.*)$/m", $pageheader, $matches2);                       // for articles only
   preg_match("/^DATE:(.*)$/m", $pageheader, $matches3);                         // for articles only
   preg_match("/^(NOMENU:1)$/m", $pageheader, $matches4);                        // for pages only: if NOMENU:1, no link in top-menu
-  preg_match("/^URL:(.*)$/m", $pageheader, $matches5);                          // for pages only: top-menu's link  (=TITLE if no URL is set)
-  return array($pageheader, $pagecontent, $matches1[1], $matches2[1], $matches3[1], $matches4[1], (isset($matches5[1]) ? $matches5[1] : strtolower($matches1[1])));
+  preg_match("/^URL:(.*)$/m", $pageheader, $matches5);                          // for articles: article's link    // for pages: top-menu's link 
+  return array($pagecontent, $matches1[1], $matches2[1], $matches3[1], $matches4[1], $matches5[1]);
 }
 
 $requestedpage = basename(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
@@ -23,7 +21,8 @@ if (trim(dirname(parse_url($_SERVER['PHP_SELF'], PHP_URL_PATH)), '/') === $reque
 $type =  strpos($_SERVER['REQUEST_URI'], 'article') ? 'article' : 'page';
 $pages = glob("./" . $type ."/*$requestedpage.{txt,md}", GLOB_BRACE);
 if ($pages) { $page = $pages[0]; } else { $page = "./page/HIDDEN-404.txt"; $type = 'page'; }                 // default 404 error page
-list($pageheader, $pagecontent, $pagetitle, $pageauthor, $pagedate, $pagenomenu, $pageurl) = getpage($page);
+list($pagecontent, $pagetitle, $pageauthor, $pagedate, $pagenomenu, $pageurl) = getpage($page);
+if (!$pageurl) { $pageurl = pathinfo($page)['filename']; }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -42,10 +41,10 @@ list($pageheader, $pagecontent, $pagetitle, $pageauthor, $pagedate, $pagenomenu,
     $pages = glob("./page/*.{txt,md}", GLOB_BRACE);
     foreach($pages as $page)
     {
-      list($menupageheader, $menupagecontent, $menupagetitle, $menupageauthor, $menupagedate, $menupagenomenu, $menupageurl) = getpage($page);
-      if (!$menupagenomenu) { echo "<li><a href=\"$menupageurl\">$menupagetitle</a></li>"; }
+      list($menupagecontent, $menupagetitle, $menupageauthor, $menupagedate, $menupagenomenu, $menupageurl) = getpage($page);
+      if (!$menupagenomenu) { echo "<li><a href=\"" . ($menupageurl ? $menupageurl : strtolower($menupagetitle)) . "\">$menupagetitle</a></li>"; }
     }
-    ?>      
+    ?>
   </ul>
 </div>
 <div class="main">
@@ -53,19 +52,22 @@ list($pageheader, $pagecontent, $pagetitle, $pageauthor, $pagedate, $pagenomenu,
 <?php
 require 'Parsedown.php';
 
-if ($type === "article") { echo "<div class=\"article\"><h2 class=\"articletitle\">$pagetitle</h2><div class=\"articleinfo\">by $pageauthor, on $pagedate</div>"; } 
-else if ($type === "page") { echo "<div class=\"page\">"; }
-
-echo (new Parsedown())->text($pagecontent) . "</div>";
+if ($type === "article")
+{ 
+  echo "<div class=\"article\"><a href=\"article/$pageurl\"><h2 class=\"articletitle\">$pagetitle</h2><div class=\"articleinfo\">by $pageauthor, on $pagedate</div></a>";
+  echo (new Parsedown())->text($pagecontent);
+  echo "</div>";
+} 
+else if ($type === "page") { echo "<div class=\"page\">" . (new Parsedown())->text($pagecontent) . "</div>"; }
 
 if ($requestedpage === $blogpagename)
 {
   $pages = array_slice(array_reverse(glob("./article/*.{txt,md}", GLOB_BRACE)), $_GET['start'], 10);
   foreach($pages as $page)
   {
-    list($pageheader, $pagecontent, $pagetitle, $pageauthor, $pagedate, $pagenomenu, $pageurl) = getpage($page);
-    echo "<div class=\"article\"><a href=\"article/". pathinfo($page)['filename'] . "\">";
-    echo "<h2 class=\"articletitle\">$pagetitle</h2><div class=\"articleinfo\">by $pageauthor, on $pagedate</div></a>";
+    list($pagecontent, $pagetitle, $pageauthor, $pagedate, $pagenomenu, $pageurl) = getpage($page);
+    if (!$pageurl) { $pageurl = pathinfo($page)['filename']; }
+    echo "<div class=\"article\"><a href=\"article/$pageurl\"><h2 class=\"articletitle\">$pagetitle</h2><div class=\"articleinfo\">by $pageauthor, on $pagedate</div></a>";
     echo (new Parsedown())->text($pagecontent);
     echo "</div>";
   }
@@ -74,7 +76,6 @@ if ($requestedpage === $blogpagename)
 }
 
 ?>
-
 </div>
 <div class="footer">
   <div class="left"><a href="">© <?php echo date('Y') . " " . $sitename; ?></a></div>

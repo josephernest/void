@@ -10,6 +10,7 @@
 .main { min-height: 18em; padding-bottom: 3em; border-bottom: 2px solid #2980b9; }
 .main a { border-bottom: 2px solid #D1D1D1; }
 .main p, .main ul { margin-top: 0; margin-bottom: 0.5em; }
+.page { font-size: 0.95em; }
 .article { margin-bottom: 4em; font-size: 0.9em; line-height: 1.4em; }
 .articleinfo { color: #AAA; margin-bottom: 1em; font-size: 0.9em; }
 .articletitle { margin-bottom: 0; }
