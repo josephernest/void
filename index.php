@@ -1,4 +1,5 @@
-<?php 
+<?php
+
 $sitename = "SomeWebsite";
 $blogpagename = "blog";
 
@@ -12,13 +13,13 @@ function getpage($page)
   preg_match("/^AUTHOR:(.*)$/m", $pageheader, $matches2);                       // for articles only
   preg_match("/^DATE:(.*)$/m", $pageheader, $matches3);                         // for articles only
   preg_match("/^(NOMENU:1)$/m", $pageheader, $matches4);                        // for pages only: if NOMENU:1, no link in top-menu
-  preg_match("/^URL:(.*)$/m", $pageheader, $matches5);                          // for articles: article's link    // for pages: top-menu's link 
+  preg_match("/^URL:(.*)$/m", $pageheader, $matches5);                          // for articles: article's link    // for pages: top-menu's link
   return array($pagecontent, $matches1[1], $matches2[1], $matches3[1], $matches4[1], $matches5[1]);
 }
 
 $siteroot = substr($_SERVER['PHP_SELF'], 0,  - strlen(basename($_SERVER['PHP_SELF']))); // must have trailing slash, we don't use dirname because it can produce antislash on Windows
 $requestedpage = basename(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
-if (parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) === $siteroot) { $requestedpage = ""; }     // check if homepage 
+if (parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) === $siteroot) { $requestedpage = ""; }     // check if homepage
 $type =  strpos($_SERVER['REQUEST_URI'], 'article/') ? 'article' : 'page';
 $pages = glob("./" . $type ."/*$requestedpage.{txt,md}", GLOB_BRACE);
 if ($pages) { $page = $pages[0]; } else { $page = "./page/HIDDEN-404.txt"; $type = 'page'; }                 // default 404 error page
@@ -33,6 +34,9 @@ if (!$pageurl) { $pageurl = pathinfo($page)['filename']; }
   <title><?php echo (trim($pagetitle) ? "$sitename - $pagetitle" : "$sitename")?></title>
   <base href="<?php echo $siteroot; ?>">
   <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" type="text/css" href="default.css">
+  <script src="highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
 </head>
 <body>
 <div class="header">
@@ -54,11 +58,11 @@ if (!$pageurl) { $pageurl = pathinfo($page)['filename']; }
 require 'Parsedown.php';
 
 if ($type === "article")
-{ 
+{
   echo "<div class=\"article\"><a href=\"article/$pageurl\"><h2 class=\"articletitle\">$pagetitle</h2><div class=\"articleinfo\">by $pageauthor, on $pagedate</div></a>";
   echo (new Parsedown())->text($pagecontent);
   echo "</div>";
-} 
+}
 else if ($type === "page") { echo "<div class=\"page\">" . (new Parsedown())->text($pagecontent) . "</div>"; }
 
 if ($requestedpage === $blogpagename)
