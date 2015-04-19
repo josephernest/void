@@ -30,7 +30,7 @@ if (!$pageurl) { $pageurl = pathinfo($page)['filename']; }
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><?php echo (trim($pagetitle) ? "$sitename - $pagetitle" : "$sitename")?></title>
-  <base href="<?php echo rtrim(dirname(parse_url($_SERVER['PHP_SELF'], PHP_URL_PATH)), DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR; ?>">  
+  <base href="<?php echo rtrim(str_replace('\\', '/', dirname($_SERVER['PHP_SELF'])), '/'); // str_replace because dirname can produce antislash on Windows ?>/">
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
