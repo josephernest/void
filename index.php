@@ -16,9 +16,10 @@ function getpage($page)
   return array($pagecontent, $matches1[1], $matches2[1], $matches3[1], $matches4[1], $matches5[1]);
 }
 
+$siteroot = substr($_SERVER['PHP_SELF'], 0,  - strlen(basename($_SERVER['PHP_SELF']))); // must have trailing slash, we don't use dirname because it can produce antislash on Windows
 $requestedpage = basename(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
-if (trim(dirname(parse_url($_SERVER['PHP_SELF'], PHP_URL_PATH)), DIRECTORY_SEPARATOR) === $requestedpage) { $requestedpage = ""; }     // check if page is home, there should be a better way to do it!
-$type =  strpos($_SERVER['REQUEST_URI'], 'article') ? 'article' : 'page';
+if (parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) === $siteroot) { $requestedpage = ""; }     // check if homepage 
+$type =  strpos($_SERVER['REQUEST_URI'], 'article/') ? 'article' : 'page';
 $pages = glob("./" . $type ."/*$requestedpage.{txt,md}", GLOB_BRACE);
 if ($pages) { $page = $pages[0]; } else { $page = "./page/HIDDEN-404.txt"; $type = 'page'; }                 // default 404 error page
 list($pagecontent, $pagetitle, $pageauthor, $pagedate, $pagenomenu, $pageurl) = getpage($page);
@@ -30,7 +31,7 @@ if (!$pageurl) { $pageurl = pathinfo($page)['filename']; }
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><?php echo (trim($pagetitle) ? "$sitename - $pagetitle" : "$sitename")?></title>
-  <base href="<?php echo rtrim(str_replace('\\', '/', dirname($_SERVER['PHP_SELF'])), '/'); // str_replace because dirname can produce antislash on Windows ?>/">
+  <base href="<?php echo $siteroot; ?>">
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
