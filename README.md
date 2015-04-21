@@ -25,4 +25,13 @@ License
 ----
 MIT license
 
+FAQ
+----
 
+####Question: How to add automatic code highlighting in articles / pages ?
+
+Use the library `highlight.js` by adding these three lines in the `<header>` part of index.php:
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
