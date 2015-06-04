@@ -13,7 +13,7 @@ function getpage($page)
   preg_match("/^DATE:(.*)$/m", $pageheader, $matches3);                         // for articles only
   preg_match("/^(NOMENU:1)$/m", $pageheader, $matches4);                        // for pages only: if NOMENU:1, no link in top-menu
   preg_match("/^URL:(.*)$/m", $pageheader, $matches5);                          // for articles: article's link    // for pages: top-menu's link 
-  return array($pagecontent, $matches1[1], $matches2[1], $matches3[1], $matches4[1], $matches5[1]);
+  return array($pagecontent, $matches1[1], trim($matches2[1]), $matches3[1], $matches4[1], trim($matches5[1]));
 }
 
 $siteroot = substr($_SERVER['PHP_SELF'], 0,  - strlen(basename($_SERVER['PHP_SELF']))); // must have trailing slash, we don't use dirname because it can produce antislash on Windows
