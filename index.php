@@ -23,7 +23,7 @@ $type =  strpos($_SERVER['REQUEST_URI'], 'article/') ? 'article' : 'page';
 $pages = glob("./" . $type ."/*$requestedpage.{txt,md}", GLOB_BRACE);
 if ($pages) { $page = $pages[0]; } else { $page = "./page/HIDDEN-404.txt"; $type = 'page'; }                 // default 404 error page
 list($pagecontent, $pagetitle, $pageauthor, $pagedate, $pagenomenu, $pageurl) = getpage($page);
-if (!$pageurl) { $pageurl = pathinfo($page)['filename']; }
+if (!$pageurl) { $a = pathinfo($page); $pageurl = $a['filename']; }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -53,13 +53,14 @@ if (!$pageurl) { $pageurl = pathinfo($page)['filename']; }
 <?php
 require 'Parsedown.php';
 
+$b = new Parsedown();
 if ($type === "article")
 { 
   echo "<div class=\"article\"><a href=\"article/$pageurl\"><h2 class=\"articletitle\">$pagetitle</h2><div class=\"articleinfo\">by $pageauthor, on $pagedate</div></a>";
-  echo (new Parsedown())->text($pagecontent);
+  echo $b->text($pagecontent);
   echo "</div>";
 } 
-else if ($type === "page") { echo "<div class=\"page\">" . (new Parsedown())->text($pagecontent) . "</div>"; }
+else if ($type === "page") { echo "<div class=\"page\">" . $b->text($pagecontent) . "</div>"; }
 
 if ($requestedpage === $blogpagename)
 {
@@ -67,9 +68,10 @@ if ($requestedpage === $blogpagename)
   foreach($pages as $page)
   {
     list($pagecontent, $pagetitle, $pageauthor, $pagedate, $pagenomenu, $pageurl) = getpage($page);
-    if (!$pageurl) { $pageurl = pathinfo($page)['filename']; }
+    if (!$pageurl) { $a = pathinfo($page); $pageurl = $a['filename']; }
     echo "<div class=\"article\"><a href=\"article/$pageurl\"><h2 class=\"articletitle\">$pagetitle</h2><div class=\"articleinfo\">by $pageauthor, on $pagedate</div></a>";
-    echo (new Parsedown())->text($pagecontent);
+	$b = new Parsedown();
+    echo $b->text($pagecontent);
     echo "</div>";
   }
   if ($_GET['start'] > 0) { echo "<a href=\"" . $blogpagename . (($_GET['start'] > 10) ? "?start=" . ($_GET['start'] - 10) : "") . "\">Newer articles</a>&nbsp; "; }
