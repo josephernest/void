@@ -9,7 +9,7 @@ What about performance? See [here](http://thisisvoid.org/article/05-perf).
 Screenshot
 ----
 
-![screenshot](http://gget.it/9p7avesy/1.jpg)](http://www.thisisvoid.org/demo/)
+[![screenshot](http://gget.it/9p7avesy/1.jpg)](http://www.thisisvoid.org/demo/)
 
 About
 ----
