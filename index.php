@@ -2,11 +2,18 @@
 $sitename = "SomeWebsite";
 $blogpagename = "blog";
 
+include "site_vars.php";
+
 error_reporting(0);
 
 function getpage($page)
 {
+  global $void_config;
   $pagestr = file_get_contents($page);
+  foreach ($void_config as $key => $val) {
+	  $placeholder = '{{' . $key . '}}';
+	  $pagestr = str_replace($placeholder, $val, $pagestr);
+  }
   list($pageheader, $pagecontent) = preg_split('~(?:\r?\n){2}~', $pagestr, 2);  // split into 2 parts : before/after the first blank line
   preg_match("/^TITLE:(.*)$/m", $pageheader, $matches1);                        // for articles: title // for pages: title displayed in top-menu
   preg_match("/^AUTHOR:(.*)$/m", $pageheader, $matches2);                       // for articles only

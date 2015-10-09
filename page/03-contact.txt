@@ -1,2 +1,2 @@
 TITLE:Contact
-URL:mailto:contact@somewebsi.te
+URL:mailto:contact@example.com

@@ -15,6 +15,7 @@ About
 ----
 
 Author: Joseph Ernest ([@JosephErnest](http:/twitter.com/JosephErnest))
+Author: Ap.Muthu ([@apmuthu](http://www.apmuthu.com))
 
 Credit
 ----
@@ -39,3 +40,15 @@ Use the library `highlight.js` by adding these three lines in the `<header>` par
 ####Question: How to count the number of unique visitors per day (analytics)?
 
 [See this blog article](http://www.thisisvoid.org/article/simpleanalytics).
+
+####Question: How to display user variables?
+
+The **02-about.txt** page has sample code to access the `$void_config` array elements that can be set in the `site_vars.php` file.
+They can be displayed in content files by wrapping the keys in double curly braces like `{{varname}}` where `varname` is a case sensitive key in the said array.
+The default parameters (spaces inside the curly braces should not be there in actual usage) are:
+{{ 0 }} => $sitename
+{{ 1 }} => Date like `Friday 9th of October 2015`
+{{ Webmaster }}
+{{ IP }} => The client IP
+You can add your own unique key/value pairs to the array and reference them in your content pages.
+

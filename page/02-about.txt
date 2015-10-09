@@ -2,6 +2,9 @@ TITLE:About
 
 #About
 
-**SomeWebsite** is a great website.
+**{{0}}** is a great website.
+Your IP is {{IP}} and your Webmaster is {{Webmaster}}.
+
+Today's date is {{1}}.
 
 Do you want to get the latest news? The [blog](blog) is here!
