@@ -1,5 +1,5 @@
 Void
-=============
+====
 
 **Void** is a website creation tool. Just static pages or blog articles? Both are possible with [Void](http://www.thisisvoid.org/).
 
@@ -9,7 +9,7 @@ What about performance? See [here](http://thisisvoid.org/article/05-perf).
 Screenshot
 ----
 
-[![screenshot](http://gget.it/9p7avesy/1.jpg)](http://www.thisisvoid.org/demo/)
+![screenshot](http://gget.it/9p7avesy/1.jpg)](http://www.thisisvoid.org/demo/)
 
 About
 ----
