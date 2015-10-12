@@ -56,4 +56,4 @@ You can add your own unique key/value pairs to the array and reference them in y
 
 ####Question: Are there Markdown parsers other than Parsedown used here?
 
-Yes, one such parser is [CommonMark])https://github.com/jgm/CommonMark).
+Yes, one such parser is [CommonMark](https://github.com/jgm/CommonMark).
