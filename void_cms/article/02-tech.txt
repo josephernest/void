@@ -18,3 +18,6 @@ This one is *even better:*
         c = a * b
         return None
 
+Stripping `AUTO_INCREMENT=xx` in sql dumps:
+
+    sed -e 's/AUTO_INCREMENT=[0-9]* //g' -i mysql_project_db.sql

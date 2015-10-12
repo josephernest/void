@@ -1,6 +1,0 @@
-TITLE:Home
-NOMENU:1
-
-This is a demo website powered by [Void](http://thisisvoid.org).
-
-![](http://gget.it/mspjlhh3/P1170225.JPG)

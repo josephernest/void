@@ -1,0 +1,8 @@
+TITLE:Home
+NOMENU:1
+
+This is a demo website powered by [Void](http://thisisvoid.org).
+
+Now sports user variables - see [About](about) page.
+
+![Void Open Book](image/P1170225.jpg)
