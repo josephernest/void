@@ -5,4 +5,4 @@ This is a demo website powered by [Void](http://thisisvoid.org).
 
 Now sports user variables - see [About](about) page.
 
-![Void Open Book](images/P1170225.jpg)
+![Void Open Book](image/P1170225.jpg)
