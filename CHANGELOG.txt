@@ -3,6 +3,8 @@ Void CMS Project Changelog
 
 Changes since 2015-10-09
 ----
+Added Configurable footer
+Added Branding
 Moved all project files to separate folder
 Added referencing user variables in content pages
 Dummy index.html pages in sub folders

@@ -87,9 +87,11 @@ if ($requestedpage === $blogpagename)
 
 ?>
 </div>
+<?php if($void_sys['show_footer']) { ?>
 <div class="footer">
   <div class="left"><a href="">© <?php echo date('Y') . " " . $sitename; ?></a></div>
-  <div class="right">Powered by <a href="http://www.thisisvoid.org">Void</a>.</div>
+  <div class="right">Powered by <a href="<?php echo $void_sys['brand_url']; ?>" target="_blank"><?php echo $void_sys['brand_name']; ?></a>.</div>
 </div>
+<?php } ?>
 </body>
 </html>
