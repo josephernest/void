@@ -1,7 +1,9 @@
 Void
 ====
 
-**Void** is a website creation tool. Just static pages or blog articles? Both are possible with [Void](http://www.thisisvoid.org/).
+* **Void** is a website creation tool (aka CMS).
+* Both **static pages** and **blog articles** are possible with [Void](http://www.thisisvoid.org/).
+* Void pages and blog articles can use (a subset of ?) the [Markdown language](https://guides.github.com/features/mastering-markdown/).
 
 The core is done in a single PHP file of less than 100 lines of code. Huh, this is bad? See the discussion [here](http://thisisvoid.org/article/03).
 What about performance? See [here](http://thisisvoid.org/article/05-perf).
@@ -11,13 +13,13 @@ Screenshot
 
 [![screenshot](http://gget.it/9p7avesy/1.jpg)](http://www.thisisvoid.org/demo/)
 
-About
+Abouts
 ----
 
 Author: Joseph Ernest ([@JosephErnest](http:/twitter.com/JosephErnest))
-Author: Ap.Muthu ([@apmuthu](http://www.apmuthu.com))
+Author: Ap.Muthu ([@apmuthu](http://www.gnuacademy.org))
 
-Credit
+Credits
 ----
 
 **Void** uses the [Parsedown](http://github.com/erusev/parsedown) library, licensed under MIT license.
@@ -52,3 +54,6 @@ The default parameters (spaces inside the curly braces should not be there in ac
 {{ IP }} => The client IP
 You can add your own unique key/value pairs to the array and reference them in your content pages.
 
+####Question: Are there Markdown parsers other than Parsedown used here?
+
+Yes, one such parser is [CommonMark])https://github.com/jgm/CommonMark).
