@@ -39,3 +39,10 @@ Use the library `highlight.js` by adding these three lines in the `<header>` par
 ####Question: How to count the number of unique visitors per day (analytics)?
 
 [See this blog article](http://www.thisisvoid.org/article/simpleanalytics).
+
+Change Log
+----
+
+[2015-9-29] Fix an XSS vulnerability by [this commit](https://github.com/josephernest/void/commit/de04f3cd75f806468c8cd4826bd515f81f4de074).
+
+An update to the latest version is recommended.
