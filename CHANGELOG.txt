@@ -1,6 +1,8 @@
 Void CMS Project Changelog
 ====
 
+2015-11-21 upstream fixes: code cleanup and htmlspecialchars encoding added
+
 Changes since 2015-10-09
 ----
 Added Configurable footer
