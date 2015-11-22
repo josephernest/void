@@ -31,7 +31,7 @@ if (!$pageurl) { $pageurl = pathinfo($page)['filename']; }
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><?php echo (trim($pagetitle) ? "$sitename - $pagetitle" : "$sitename")?></title>
-  <base href="<?php echo htmlspecialchars($siteroot, ENT_QUOTES); ?>">
+  <base href="<?php echo htmlspecialchars($siteroot, ENT_QUOTES, 'UTF-8'); ?>">
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
