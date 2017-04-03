@@ -1,15 +1,15 @@
 Void
 =============
 
-**Void** is a website creation tool. Just static pages or blog articles? Both are possible with [Void](http://www.thisisvoid.org/).
+**Void** is a website creation tool. Just static pages or blog articles? Both are possible with [Void](http://www.gget.it/void/).
 
-The core is done in a single PHP file of less than 100 lines of code. Huh, this is bad? See the discussion [here](http://thisisvoid.org/article/03).
-What about performance? See [here](http://thisisvoid.org/article/05-perf).
+The core is done in a single PHP file of less than 100 lines of code. Huh, this is bad? See the discussion [here](http://www.gget.it/void/article/03).
+What about performance? See [here](http://www.gget.it/void/article/05-perf).
 
 Screenshot
 ----
 
-[![screenshot](http://gget.it/9p7avesy/1.jpg)](http://www.thisisvoid.org/demo/)
+[![screenshot](http://gget.it/9p7avesy/1.jpg)](http://www.gget.it/void/demo/)
 
 About
 ----
@@ -38,4 +38,4 @@ Use the library `highlight.js` by adding these three lines in the `<header>` par
 
 ####Question: How to count the number of unique visitors per day (analytics)?
 
-[See this blog article](http://www.thisisvoid.org/article/simpleanalytics).
+[See this blog article](http://www.gget.it/void/article/simpleanalytics).
