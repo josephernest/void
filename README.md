@@ -28,7 +28,7 @@ MIT license
 FAQ
 ----
 
-####Question: How to add automatic code highlighting in articles / pages?
+**Question: How to add automatic code highlighting in articles / pages?**
 
 Use the library `highlight.js` by adding these three lines in the `<header>` part of `index.php`:
 
@@ -36,6 +36,6 @@ Use the library `highlight.js` by adding these three lines in the `<header>` par
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/highlight.min.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
 
-####Question: How to count the number of unique visitors per day (analytics)?
+**Question: How to count the number of unique visitors per day (analytics)?**
 
 [See this blog article](http://www.gget.it/void/article/simpleanalytics).
