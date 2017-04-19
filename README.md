@@ -31,7 +31,7 @@ MIT license
 FAQ
 ----
 
-####Question: How to add automatic code highlighting in articles / pages?
+#### Question: How to add automatic code highlighting in articles / pages?
 
 Use the library `highlight.js` by adding these three lines in the `<header>` part of `index.php`:
 
@@ -39,11 +39,11 @@ Use the library `highlight.js` by adding these three lines in the `<header>` par
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/highlight.min.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
 
-####Question: How to count the number of unique visitors per day (analytics)?
+#### Question: How to count the number of unique visitors per day (analytics)?
 
 [See this blog article](http://www.thisisvoid.org/article/simpleanalytics).
 
-####Question: How to display user variables?
+#### Question: How to display user variables?
 
 The **02-about.txt** page has sample code to access the `$void_config` array elements that can be set in the `site_vars.php` file.
 They can be displayed in content files by wrapping the keys in double curly braces like `{{varname}}` where `varname` is a case sensitive key in the said array.
@@ -54,10 +54,10 @@ The default parameters (spaces inside the curly braces should not be there in ac
 {{ IP }} => The client IP
 You can add your own unique key/value pairs to the array and reference them in your content pages.
 
-####Question: Are there Markdown parsers other than Parsedown used here?
+#### Question: Are there Markdown parsers other than Parsedown used here?
 
 Yes, one such parser is [CommonMark](https://github.com/jgm/CommonMark).
 
-####Question: How do we change the colour of the links by default in black / grey in the body content?
+#### Question: How do we change the colour of the links by default in black / grey in the body content?
 
 Line 24 of `style.css` by default which begins with `a { color: black;` can be altered with `a { color: #1155FF;`
