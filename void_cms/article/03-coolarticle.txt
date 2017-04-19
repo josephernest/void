@@ -5,8 +5,37 @@ AUTHOR:Jo
 
 This is a sample blog article. What to do now?
 * write a new article,
-* listen to [some music](http://soundcloud.com/shura/sets/shura-just-once),
+* listen to [some music](https://soundcloud.com/darkagent369/jimmy-buffett-jamaica-farewell),
 * or do something else?
 
 ![](http://gget.it/hm8jobmp/tumblr_ltjcmgHCkz1r0mxp5.jpg)
 
+This is a sample table:
+
+Left Align | Center Align | Right Align
+ :--- | :---: | ---:
+**Bold** | *Italic* | ~~Strikethrough~~
+__Alt Bold__ | _Alt Italic_ | `Code`
+John Doe | 2017-01-26 | $ 35.24
+
+This is a sample table left aligned without heading:
+
+ | 
+--- | ---
+Param 1 | Value 1
+Param 2 | Value 2
+
+> Blockquotes are very handy in email to emulate reply text.
+> This line is part of the same quote.
+
+Quote break.
+
+> This is a very long line that will still be quoted properly when it wraps. Oh boy let's keep writing to make sure this is long enough to actually wrap for everyone. Oh, you can *put* **Markdown** into a blockquote. 
+
+View Source Code clicking [this link](view-source:http://nilclass.com/courses/what-is-a-static-website/).
+
+Ordered List:
+
+1. [Mastering Markdown Syntax](https://guides.github.com/features/mastering-markdown/)
+1. [Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
+1. [Markdown Table Generator](http://www.tablesgenerator.com/markdown_tables)

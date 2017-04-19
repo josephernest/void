@@ -1,6 +1,10 @@
 Void CMS Project Changelog
 ====
 
+2017-04-19 Moved all variables to site_vars.php
+2017-04-19 TITLE in pages can now have spaces and file names are stripped of spaces
+2017-04-19 added footer text
+2017-04-19 extended example with tables and alignment in markdown
 2015-11-21 upstream fixes: code cleanup and htmlspecialchars encoding added
 
 Changes since 2015-10-09

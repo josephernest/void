@@ -1,7 +1,4 @@
 <?php 
-$sitename = "SomeWebsite";
-$blogpagename = "blog";
-
 include "site_vars.php";
 
 error_reporting(0);
@@ -50,7 +47,7 @@ if (!$pageurl) { $a = pathinfo($page); $pageurl = $a['filename']; }
     foreach($pages as $page)
     {
       list($menupagecontent, $menupagetitle, $menupageauthor, $menupagedate, $menupagenomenu, $menupageurl) = getpage($page);
-      if (!$menupagenomenu) { echo "<li><a href=\"" . ($menupageurl ? $menupageurl : strtolower($menupagetitle)) . "\">$menupagetitle</a></li>"; }
+      if (!$menupagenomenu) { echo "<li><a href=\"" . ($menupageurl ? $menupageurl : str_replace(' ', '', strtolower($menupagetitle))) . "\">$menupagetitle</a></li>"; }
     }
     ?>
   </ul>
@@ -89,6 +86,9 @@ if ($requestedpage === $blogpagename)
 </div>
 <?php if($void_sys['show_footer']) { ?>
 <div class="footer">
+  <?php if($void_sys['show_footer_txt']) { ?>
+  <div class="center"><center><?php echo $void_sys['footer_txt']; ?></center></div>
+  <?php } ?>
   <div class="left"><a href="">© <?php echo date('Y') . " " . $sitename; ?></a></div>
   <div class="right">Powered by <a href="<?php echo $void_sys['brand_url']; ?>" target="_blank"><?php echo $void_sys['brand_name']; ?></a>.</div>
 </div>

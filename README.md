@@ -13,7 +13,7 @@ Screenshot
 
 [![screenshot](http://gget.it/9p7avesy/1.jpg)](http://www.thisisvoid.org/demo/)
 
-Abouts
+About
 ----
 
 Author: Joseph Ernest ([@JosephErnest](http:/twitter.com/JosephErnest))
@@ -57,3 +57,7 @@ You can add your own unique key/value pairs to the array and reference them in y
 ####Question: Are there Markdown parsers other than Parsedown used here?
 
 Yes, one such parser is [CommonMark](https://github.com/jgm/CommonMark).
+
+####Question: How do we change the colour of the links by default in black / grey in the body content?
+
+Line 24 of `style.css` by default which begins with `a { color: black;` can be altered with `a { color: #1155FF;`
