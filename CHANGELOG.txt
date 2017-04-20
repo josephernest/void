@@ -1,6 +1,7 @@
 Void CMS Project Changelog
 ====
 
+2017-04-21 Added system variable element 'header' and 'NOHEAD:1' for pages with no header
 2017-04-19 Moved all variables to site_vars.php
 2017-04-19 TITLE in pages can now have spaces and file names are stripped of spaces
 2017-04-19 added footer text

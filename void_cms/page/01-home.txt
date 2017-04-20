@@ -1,5 +1,6 @@
 TITLE:Home
 NOMENU:1
+NOHEAD:1
 
 This is a demo website powered by [Void](http://thisisvoid.org).
 

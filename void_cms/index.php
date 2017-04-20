@@ -17,7 +17,8 @@ function getpage($page)
   preg_match("/^DATE:(.*)$/m", $pageheader, $matches3);                         // for articles only
   preg_match("/^(NOMENU:1)$/m", $pageheader, $matches4);                        // for pages only: if NOMENU:1, no link in top-menu
   preg_match("/^URL:(.*)$/m", $pageheader, $matches5);                          // for articles: article's link; for pages: top-menu's link 
-  return array($pagecontent, $matches1[1], trim($matches2[1]), $matches3[1], $matches4[1], trim($matches5[1]));
+  preg_match("/^(NOHEAD:1)$/m", $pageheader, $matches6);                        // for pages only: if NOHEAD:1, no header after top menu
+  return array($pagecontent, $matches1[1], trim($matches2[1]), $matches3[1], $matches4[1], trim($matches5[1]), $matches6[1]);
 }
 
 $siteroot = substr($_SERVER['PHP_SELF'], 0,  - strlen(basename($_SERVER['PHP_SELF']))); // must have trailing slash, we don't use dirname because it can produce antislash on Windows
@@ -26,7 +27,7 @@ if (parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) === $siteroot) { $requested
 $type =  strpos($_SERVER['REQUEST_URI'], 'article/') ? 'article' : 'page';
 $pages = glob("./" . $type ."/*$requestedpage.{txt,md}", GLOB_BRACE);
 if ($pages) { $page = $pages[0]; } else { $page = "./page/HIDDEN-404.txt"; $type = 'page'; }     // default 404 error page
-list($pagecontent, $pagetitle, $pageauthor, $pagedate, $pagenomenu, $pageurl) = getpage($page);
+list($pagecontent, $pagetitle, $pageauthor, $pagedate, $pagenomenu, $pageurl, $pagenohead) = getpage($page);
 if (!$pageurl) { $a = pathinfo($page); $pageurl = $a['filename']; }
 ?>
 <!DOCTYPE html>
@@ -46,7 +47,7 @@ if (!$pageurl) { $a = pathinfo($page); $pageurl = $a['filename']; }
     $pages = glob("./page/*.{txt,md}", GLOB_BRACE);
     foreach($pages as $page)
     {
-      list($menupagecontent, $menupagetitle, $menupageauthor, $menupagedate, $menupagenomenu, $menupageurl) = getpage($page);
+      list($menupagecontent, $menupagetitle, $menupageauthor, $menupagedate, $menupagenomenu, $menupageurl, $menupagenohead) = getpage($page);
       if (!$menupagenomenu) { echo "<li><a href=\"" . ($menupageurl ? $menupageurl : str_replace(' ', '', strtolower($menupagetitle))) . "\">$menupagetitle</a></li>"; }
     }
     ?>
@@ -64,14 +65,20 @@ if ($type === "article")
   echo $b->text($pagecontent);
   echo "</div>";
 } 
-else if ($type === "page") { echo "<div class=\"page\">" . $b->text($pagecontent) . "</div>"; }
+else if ($type === "page")
+{
+  if(!$pagenohead) {
+    echo '<div class="center">' . $void_sys['header'] . '</div>';
+  }
+  echo '<div class="page">' . $b->text($pagecontent) . '</div>';
+}
 
 if ($requestedpage === $blogpagename)
 {
   $pages = array_slice(array_reverse(glob("./article/*.{txt,md}", GLOB_BRACE)), $_GET['start'], 10);
   foreach($pages as $page)
   {
-    list($pagecontent, $pagetitle, $pageauthor, $pagedate, $pagenomenu, $pageurl) = getpage($page);
+    list($pagecontent, $pagetitle, $pageauthor, $pagedate, $pagenomenu, $pageurl, $pagenohead) = getpage($page);
     if (!$pageurl) { $a = pathinfo($page); $pageurl = $a['filename']; }
     echo "<div class=\"article\"><a href=\"article/$pageurl\"><h2 class=\"articletitle\">$pagetitle</h2><div class=\"articleinfo\">by $pageauthor, on $pagedate</div></a>";
 	$b = new Parsedown();
