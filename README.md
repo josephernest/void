@@ -11,7 +11,7 @@ What about performance? See [here](http://thisisvoid.org/article/05-perf).
 Screenshot
 ----
 
-[![screenshot](https://raw.githubusercontent.com/apmuthu/void/master/void_cms/image/P1170225.jpg)](http://www.thisisvoid.org/demo/)
+[![screenshot](https://cloud.githubusercontent.com/assets/2995044/25306550/0b8d5c20-27ad-11e7-818a-aefd1897eca3.png)](http://www.thisisvoid.org/demo/)
 
 About
 ----

@@ -1,8 +1,6 @@
 <?php 
 include "site_vars.php";
-
 error_reporting(0);
-
 function getpage($page)
 {
   global $void_config;
@@ -20,7 +18,6 @@ function getpage($page)
   preg_match("/^(NOHEAD:1)$/m", $pageheader, $matches6);                        // for pages only: if NOHEAD:1, no header after top menu
   return array($pagecontent, $matches1[1], trim($matches2[1]), $matches3[1], $matches4[1], trim($matches5[1]), $matches6[1]);
 }
-
 $siteroot = substr($_SERVER['PHP_SELF'], 0,  - strlen(basename($_SERVER['PHP_SELF']))); // must have trailing slash, we don't use dirname because it can produce antislash on Windows
 $requestedpage = basename(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
 if (parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) === $siteroot) { $requestedpage = ""; }     // check if homepage 
@@ -93,9 +90,7 @@ if ($requestedpage === $blogpagename)
 </div>
 <?php if($void_sys['show_footer']) { ?>
 <div class="footer">
-  <?php if($void_sys['show_footer_txt']) { ?>
-  <div class="center"><center><?php echo $void_sys['footer_txt']; ?></center></div>
-  <?php } ?>
+  <?php if($void_sys['show_footer_txt']) { ?><div class="center"><center><?php echo $void_sys['footer_txt']; ?></center></div><?php } ?>
   <div class="left"><a href="">© <?php echo date('Y') . " " . $sitename; ?></a></div>
   <div class="right">Powered by <a href="<?php echo $void_sys['brand_url']; ?>" target="_blank"><?php echo $void_sys['brand_name']; ?></a>.</div>
 </div>

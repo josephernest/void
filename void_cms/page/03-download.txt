@@ -1,0 +1,32 @@
+TITLE:Download
+NOHEAD:1
+
+# Download
+
+Here you can download **Void**:
+
+ | 
+--- | --- | ---
+![](https://cloud.githubusercontent.com/assets/2995044/25306588/d89daddc-27ad-11e7-82e1-d6983ac3f407.png) |  | [void-master.zip](https://github.com/apmuthu/void/archive/master.zip) <br> 
+
+----
+
+# Features
+
+* Just what you need: static pages + a blog with articles
+* Responsive design (try it on your phone or tablet)
+* System and User Variables templated in
+* Nothing else.
+
+*If you really want to go technical:*
+
+* No SQL, no database, just plain .txt files
+* No account creation needed, no administration panel, you just drop `.txt` files, written with the famous [Markdown](http://en.wikipedia.org/wiki/Markdown) syntax.
+* A single PHP file of less than 100 lines of code. [Really](https://github.com/apmuthu/void/blob/master/void_cms/index.php).
+* But yet the possibility of having static pages, articles, custom links in menu, etc.
+
+Use it now:
+
+ | 
+--- | --- | ---
+![](https://cloud.githubusercontent.com/assets/2995044/25306588/d89daddc-27ad-11e7-82e1-d6983ac3f407.png) |  | [void-master.zip](https://github.com/apmuthu/void/archive/master.zip) <br> 

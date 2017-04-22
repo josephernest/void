@@ -1,5 +1,5 @@
 <?php
-$sitename = "SomeWebsite";
+$sitename = "Void";
 $blogpagename = "blog";
 
 $void_config = Array(
