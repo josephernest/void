@@ -16,8 +16,8 @@ Screenshot
 About
 ----
 
-Author: Joseph Ernest ([@JosephErnest](http:/twitter.com/JosephErnest))
-Author: Ap.Muthu ([@apmuthu](http://www.gnuacademy.org))
+* Author: Joseph Ernest ([@JosephErnest](http:/twitter.com/JosephErnest))
+* Author: Ap.Muthu ([@apmuthu](http://www.gnuacademy.org))
 
 Credits
 ----
