@@ -62,6 +62,12 @@ Yes, one such parser is [CommonMark](https://github.com/jgm/CommonMark).
 
 Line 24 of `style.css` by default which begins with `a { color: black;` can be altered with `a { color: #1155FF;`
 
-#### Question: How do we put border on tables?
+#### Question: How do we remove border on tables?
 
-Add this line to `style.css` at it's end: `table, th, td { border: 1px solid black; }`
+Comment out the following lines in `style.css`:
+````
+/*
+table { border-collapse: collapse; }
+table, th, td { border: 1px solid #a9a9a9; }
+*/
+````

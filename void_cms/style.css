@@ -31,6 +31,8 @@ h4 { font-size: 1.2em; font-weight: 600; margin-bottom: .5em; line-height: 1.25e
 blockquote { background: none; border-left: 3px solid #777; color: #777; padding: 0 0 0 10px; margin-left: 1.2em; }
 hr { margin: 2em 0; height: 2px; background-color: #D1D1D1; border: none; }
 pre { background-color: #F1F1F1; margin-bottom: 0.7em; line-height: 1.5em; }
+table { border-collapse: collapse; }
+table, th, td { border: 1px solid #a9a9a9; }
 
 @media (max-width: 640px) { 
   body { padding: 1.25em; }

@@ -20,7 +20,7 @@ John Doe | 2017-01-26 | $ 35.24
 
 This is a sample table left aligned without heading:
 
- | 
+| | |
 --- | ---
 Param 1 | Value 1
 Param 2 | Value 2
