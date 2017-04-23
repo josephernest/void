@@ -8,7 +8,7 @@ This is a sample blog article. What to do now?
 * listen to [some music](https://soundcloud.com/darkagent369/jimmy-buffett-jamaica-farewell),
 * or do something else?
 
-![](http://gget.it/hm8jobmp/tumblr_ltjcmgHCkz1r0mxp5.jpg)
+![](https://cloud.githubusercontent.com/assets/2995044/25316095/5efc4ec6-287e-11e7-90ad-1c22e534c8cf.jpg)
 
 This is a sample table:
 

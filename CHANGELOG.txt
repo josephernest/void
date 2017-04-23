@@ -1,6 +1,7 @@
 Void CMS Project Changelog
 ====
 
+2017-04-23 Localised images to be within GitHub.
 2017-04-22 Localised links.
 2017-04-22 ggit.it is closing down. Localised book image.
 2017-04-22 Updated Parsedown.php from upstream
