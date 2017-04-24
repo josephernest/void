@@ -1,6 +1,5 @@
 TITLE:Home
 NOMENU:1
-NOHEAD:1
 
 Void is a website creation tool. Just static pages or blog articles? Both are possible with Void.
 

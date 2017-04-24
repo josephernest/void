@@ -1,6 +1,7 @@
 Void CMS Project Changelog
 ====
 
+2017-04-24 Separate footer and footer_txt sections without nesting. $site_header variable added.
 2017-04-23 Solid grey border in tables by default.
 2017-04-23 Localised images to be within GitHub.
 2017-04-22 Localised links.

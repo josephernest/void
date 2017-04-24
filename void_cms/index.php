@@ -38,7 +38,7 @@ if (!$pageurl) { $a = pathinfo($page); $pageurl = $a['filename']; }
 </head>
 <body>
 <div class="header">
-  <div class="logo"><a href="."><?php echo $sitename;?></a></div>
+  <?php if(!$pagenohead && strlen($site_header) > 0) { ?><div class="logo"><a href="."><?php echo $site_header;?></a></div> <?php } ?>
   <ul class="menu">
     <?php
     $pages = glob("./page/*.{txt,md}", GLOB_BRACE);
@@ -64,9 +64,6 @@ if ($type === "article")
 } 
 else if ($type === "page")
 {
-  if(!$pagenohead) {
-    echo '<div class="center">' . $void_sys['header'] . '</div>';
-  }
   echo '<div class="page">' . $b->text($pagecontent) . '</div>';
 }
 
@@ -88,9 +85,9 @@ if ($requestedpage === $blogpagename)
 
 ?>
 </div>
+<div class="footer"><?php if($void_sys['show_footer_txt']) { ?><div class="center"><center><?php echo $void_sys['footer_txt']; ?></center></div><?php } ?></div>
 <?php if($void_sys['show_footer']) { ?>
 <div class="footer">
-  <?php if($void_sys['show_footer_txt']) { ?><div class="center"><center><?php echo $void_sys['footer_txt']; ?></center></div><?php } ?>
   <div class="left"><a href="">© <?php echo date('Y') . " " . $sitename; ?></a></div>
   <div class="right">Powered by <a href="<?php echo $void_sys['brand_url']; ?>" target="_blank"><?php echo $void_sys['brand_name']; ?></a>.</div>
 </div>

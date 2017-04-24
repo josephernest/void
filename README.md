@@ -71,3 +71,12 @@ table { border-collapse: collapse; }
 table, th, td { border: 1px solid #a9a9a9; }
 */
 ````
+
+#### Question: How do we use a header image
+
+Use the `$site_header` example for image in the file `site_vars.php` and replace the `.logo` css lines in `style.css` with:
+````
+.logo { text-align: center; margin-top: 0.3em; }
+.logo a { background-color: white; color: black; padding: 0.2em 0.2em; font-size: 1.4em; }
+.logo a:hover { color: red; }
+````
