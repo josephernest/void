@@ -1,4 +1,4 @@
-<?php 
+<?php
 include "site_vars.php";
 error_reporting(0);
 function getpage($page)
