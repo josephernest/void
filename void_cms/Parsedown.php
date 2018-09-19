@@ -17,7 +17,7 @@ class Parsedown
 {
     # ~
 
-    const version = '1.8.0-beta-3';
+    const version = '1.8.0-beta-5';
 
     # ~
 
@@ -317,9 +317,16 @@ class Parsedown
 
     protected function extractElement(array $Component)
     {
-        if ( ! isset($Component['element']) and isset($Component['markup']))
+        if ( ! isset($Component['element']))
         {
-            $Component['element'] = array('rawHtml' => $Component['markup']);
+            if (isset($Component['markup']))
+            {
+                $Component['element'] = array('rawHtml' => $Component['markup']);
+            }
+            elseif (isset($Component['hidden']))
+            {
+                $Component['element'] = array();
+            }
         }
 
         return $Component['element'];
@@ -382,6 +389,11 @@ class Parsedown
 
             return $Block;
         }
+    }
+
+    protected function blockCodeComplete($Block)
+    {
+        return $Block;
     }
 
     #
@@ -498,6 +510,11 @@ class Parsedown
 
         $Block['element']['element']['text'] .= "\n" . $Line['body'];
 
+        return $Block;
+    }
+
+    protected function blockFencedCodeComplete($Block)
+    {
         return $Block;
     }
 
@@ -1208,14 +1225,14 @@ class Parsedown
             'element' => array(),
         );
 
-        $safeText = self::escape($text, true);
-
-        $Inline['element']['rawHtml'] = preg_replace(
+        $Inline['element']['elements'] = self::pregReplaceElements(
             $this->breaksEnabled ? '/[ ]*+\n/' : '/(?:[ ]*+\\\\|[ ]{2,}+)\n/',
-            "<br />\n",
-            $safeText
+            array(
+                array('name' => 'br'),
+                array('text' => "\n"),
+            ),
+            $text
         );
-        $Inline['element']['allowRawHtmlInSafeMode'] = true;
 
         return $Inline;
     }
