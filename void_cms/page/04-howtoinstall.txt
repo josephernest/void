@@ -1,2 +1,2 @@
 TITLE:Install
-URL:http://thisisvoid.org/howtoinstall
+URL:https://gget.it/void/howtoinstall

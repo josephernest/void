@@ -3,7 +3,7 @@ NOMENU:1
 
 Void is a website creation tool. Just static pages or blog articles? Both are possible with Void.
 
-It can't be simpler. [Download](https://github.com/apmuthu/void/archive/master.zip) it now, see the [demo website](http://thisisvoid.org/demo), or [browse the code](https://github.com/apmuthu/void). 
+It can't be simpler. [Download](https://github.com/apmuthu/void/archive/master.zip) it now, see the [demo website](https://gget.it/void/demo), or [browse the code](https://github.com/apmuthu/void). 
 
 Now sports user variables - see [About](about) page.
 

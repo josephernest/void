@@ -2,16 +2,16 @@ Void
 ====
 
 * **Void** is a website creation tool (aka CMS).
-* Both **static pages** and **blog articles** are possible with [Void](http://www.thisisvoid.org/).
+* Both **static pages** and **blog articles** are possible with [Void](https://gget.it/void/).
 * Void pages and blog articles can use (a subset of ?) the [Markdown language](https://guides.github.com/features/mastering-markdown/).
 
-The core is done in a single PHP file of less than 100 lines of code. Huh, this is bad? See the discussion [here](http://thisisvoid.org/article/03).
-What about performance? See [here](http://thisisvoid.org/article/05-perf).
+The core is done in a single PHP file of less than 100 lines of code. Huh, this is bad? See the discussion [here](https://gget.it/void/article/03).
+What about performance? See [here](https://gget.it/void/article/05-perf).
 
 Screenshot
 ----
 
-[![screenshot](https://cloud.githubusercontent.com/assets/2995044/25306550/0b8d5c20-27ad-11e7-818a-aefd1897eca3.png)](http://www.thisisvoid.org/demo/)
+[![screenshot](https://cloud.githubusercontent.com/assets/2995044/25306550/0b8d5c20-27ad-11e7-818a-aefd1897eca3.png)](https://gget.it/void/demo/)
 
 About
 ----
@@ -41,7 +41,7 @@ Use the library `highlight.js` by adding these three lines in the `<header>` par
 
 #### Question: How to count the number of unique visitors per day (analytics)?
 
-[See this blog article](http://www.thisisvoid.org/article/simpleanalytics).
+[See this blog article](https://gget.it/void/article/simpleanalytics).
 
 #### Question: How to display user variables?
 
