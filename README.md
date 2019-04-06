@@ -31,6 +31,10 @@ MIT license
 FAQ
 ----
 
+#### Question: How to display a menu name that is different from the page TITLE?
+
+This version now sports the ALIAS directive which can be used in pages where a different language / name is different from the page TITLE.
+
 #### Question: How to add automatic code highlighting in articles / pages?
 
 Use the library `highlight.js` by adding these three lines in the `<header>` part of `index.php`:
