@@ -5,6 +5,9 @@ Void
 * Both **static pages** and **blog articles** are possible with [Void](https://gget.it/void/).
 * Void pages and blog articles can use (a subset of ?) the [Markdown language](https://guides.github.com/features/mastering-markdown/).
 
+About
+----
+
 The core is done in a single PHP file of less than 100 lines of code. Huh, this is bad? See the discussion [here](https://gget.it/void/article/03).
 What about performance? See [here](https://gget.it/void/article/05-perf).
 
@@ -13,20 +16,16 @@ Screenshot
 
 [![screenshot](https://cloud.githubusercontent.com/assets/2995044/25306550/0b8d5c20-27ad-11e7-818a-aefd1897eca3.png)](https://gget.it/void/demo/)
 
-About
+Credits
 ----
 
 * Author: Joseph Ernest ([@JosephErnest](http:/twitter.com/JosephErnest))
 * Author: Ap.Muthu ([@apmuthu](http://www.gnuacademy.org))
 
-Credits
+License
 ----
 
 **Void** uses the [Parsedown](http://github.com/erusev/parsedown) library, licensed under MIT license.
-
-License
-----
-MIT license
 
 FAQ
 ----
@@ -83,4 +82,13 @@ Use the `$site_header` example for image in the file `site_vars.php` and replace
 .logo { text-align: center; margin-top: 0.3em; }
 .logo a { background-color: white; color: black; padding: 0.2em 0.2em; font-size: 1.4em; }
 .logo a:hover { color: red; }
+````
+
+#### Question: How do we enter comments in markdown code in pages and articles?
+
+Use one of the following constructs:
+````
+[//]: # "Comment"
+or
+[//]: # (Comment) 
 ````
