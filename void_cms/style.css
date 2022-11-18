@@ -1,6 +1,19 @@
 .header { margin-bottom: 1.5em; padding-bottom: 1em; min-height: 3.1em; border-bottom: 2px solid #2980b9; }
 .header a:hover, .footer a:hover { border: none; }
 .header:after { content: ''; clear: both; display: block; }
+
+/*
+.logo { text-align: center; margin-top: 0.3em; }
+.logo a { background-color: white; color: black; padding: 0.2em 0.2em; font-size: 1.4em; }
+.logo a:hover { color: red; }
+*/
+
+/*
+.logo { float: left; margin-top: 0.3em; background-color: #2980b9; }
+.logo a { background-color: #2980b9; color: black; padding: 0.2em 0.2em; font-size: 1.4em; }
+.logo a:hover { color: red; }
+*/
+
 .logo { float: left; margin-top: 0.3em; }
 .logo a { background-color: #2980b9; color: white; padding: 0.2em 0.2em; font-size: 1.4em; }
 .logo a:hover { color: white; }

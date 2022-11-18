@@ -84,6 +84,15 @@ Use the `$site_header` example for image in the file `site_vars.php` and replace
 .logo a:hover { color: red; }
 ````
 
+#### Question: How do we use a background colour for header logo image
+
+Replace the `.logo` css lines in `style.css` with:
+````
+.logo { float: left; margin-top: 0.3em; background-color: #2980b9; }
+.logo a { background-color: #2980b9; color: black; padding: 0.2em 0.2em; font-size: 1.4em; }
+.logo a:hover { color: red; }
+````
+
 #### Question: How do we enter comments in markdown code in pages and articles?
 
 Use one of the following constructs:
@@ -91,4 +100,13 @@ Use one of the following constructs:
 [//]: # "Comment"
 or
 [//]: # (Comment) 
+````
+
+#### Question: Firefox is very slow on http when there is no https
+* [Firefox 80: HTTPS-only Mode in Settings](https://www.ghacks.net/2020/07/11/firefox-80-https-only-mode-in-settings/) - July 2020
+* [Firefox 91 introduces HTTPS by Default in Private Browsing](https://blog.mozilla.org/security/2021/08/10/firefox-91-introduces-https-by-default-in-private-browsing/) - August 2021
+* Void CMS is affected by the above and hence the follow settings in `about:config` are in order to mitigate it:
+````
+dom.security.https_first - false
+dom.security.https_first_pbm - false
 ````
